@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DemoStudentDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="cms_Class">
+    <Key>
+      <PropertyRef Name="ClassId" />
+    </Key>
+    <Property Name="ClassId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="cms_Group" Relationship="Self.FK__cms_Group__Class__0519C6AF" FromRole="cms_Class" ToRole="cms_Group" />
+    <NavigationProperty Name="cms_Student" Relationship="Self.FK__cms_Stude__Class__09DE7BCC" FromRole="cms_Class" ToRole="cms_Student" />
+  </EntityType>
+  <EntityType Name="cms_Group">
+    <Key>
+      <PropertyRef Name="GroupId" />
+    </Key>
+    <Property Name="GroupId" Type="Int32" Nullable="false" />
+    <Property Name="Leader" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="ClassId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="cms_Class" Relationship="Self.FK__cms_Group__Class__0519C6AF" FromRole="cms_Group" ToRole="cms_Class" />
+    <NavigationProperty Name="cms_Student" Relationship="Self.FK__cms_Stude__Group__0AD2A005" FromRole="cms_Group" ToRole="cms_Student" />
+  </EntityType>
+  <EntityType Name="cms_Student">
+    <Key>
+      <PropertyRef Name="StudentId" />
+    </Key>
+    <Property Name="StudentId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Address" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Facebook" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ClassId" Type="Int32" Nullable="false" />
+    <Property Name="GroupId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="cms_Class" Relationship="Self.FK__cms_Stude__Class__09DE7BCC" FromRole="cms_Student" ToRole="cms_Class" />
+    <NavigationProperty Name="cms_Group" Relationship="Self.FK__cms_Stude__Group__0AD2A005" FromRole="cms_Student" ToRole="cms_Group" />
+  </EntityType>
+  <Association Name="FK__cms_Group__Class__0519C6AF">
+    <End Role="cms_Class" Type="Self.cms_Class" Multiplicity="1" />
+    <End Role="cms_Group" Type="Self.cms_Group" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="cms_Class">
+        <PropertyRef Name="ClassId" />
+      </Principal>
+      <Dependent Role="cms_Group">
+        <PropertyRef Name="ClassId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__cms_Stude__Class__09DE7BCC">
+    <End Role="cms_Class" Type="Self.cms_Class" Multiplicity="1" />
+    <End Role="cms_Student" Type="Self.cms_Student" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="cms_Class">
+        <PropertyRef Name="ClassId" />
+      </Principal>
+      <Dependent Role="cms_Student">
+        <PropertyRef Name="ClassId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__cms_Stude__Group__0AD2A005">
+    <End Role="cms_Group" Type="Self.cms_Group" Multiplicity="1" />
+    <End Role="cms_Student" Type="Self.cms_Student" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="cms_Group">
+        <PropertyRef Name="GroupId" />
+      </Principal>
+      <Dependent Role="cms_Student">
+        <PropertyRef Name="GroupId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="StudentDBEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="cms_Class" EntityType="Self.cms_Class" />
+    <EntitySet Name="cms_Group" EntityType="Self.cms_Group" />
+    <EntitySet Name="cms_Student" EntityType="Self.cms_Student" />
+    <AssociationSet Name="FK__cms_Group__Class__0519C6AF" Association="Self.FK__cms_Group__Class__0519C6AF">
+      <End Role="cms_Class" EntitySet="cms_Class" />
+      <End Role="cms_Group" EntitySet="cms_Group" />
+    </AssociationSet>
+    <AssociationSet Name="FK__cms_Stude__Class__09DE7BCC" Association="Self.FK__cms_Stude__Class__09DE7BCC">
+      <End Role="cms_Class" EntitySet="cms_Class" />
+      <End Role="cms_Student" EntitySet="cms_Student" />
+    </AssociationSet>
+    <AssociationSet Name="FK__cms_Stude__Group__0AD2A005" Association="Self.FK__cms_Stude__Group__0AD2A005">
+      <End Role="cms_Group" EntitySet="cms_Group" />
+      <End Role="cms_Student" EntitySet="cms_Student" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

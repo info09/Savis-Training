@@ -1,0 +1,94 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="SAVISCoreFWCMSAISJun27ModelStoreContainer" CdmEntityContainer="SavisCoreFWEntities">
+    <EntitySetMapping Name="aspnet_Applications">
+      <EntityTypeMapping TypeName="SAVIS.CoreFW.CMS.AIS.Jun27Model.aspnet_Applications">
+        <MappingFragment StoreEntitySet="aspnet_Applications">
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="ApplicationId" ColumnName="ApplicationId" />
+          <ScalarProperty Name="LoweredApplicationName" ColumnName="LoweredApplicationName" />
+          <ScalarProperty Name="ApplicationName" ColumnName="ApplicationName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="aspnet_Users">
+      <EntityTypeMapping TypeName="SAVIS.CoreFW.CMS.AIS.Jun27Model.aspnet_Users">
+        <MappingFragment StoreEntitySet="aspnet_Users">
+          <ScalarProperty Name="FullName" ColumnName="FullName" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="ApplicationId" ColumnName="ApplicationId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="cms_Video">
+      <EntityTypeMapping TypeName="SAVIS.CoreFW.CMS.AIS.Jun27Model.cms_Video">
+        <MappingFragment StoreEntitySet="cms_Video">
+          <ScalarProperty Name="ApplicationId" ColumnName="ApplicationId" />
+          <ScalarProperty Name="DisplayStatus" ColumnName="DisplayStatus" />
+          <ScalarProperty Name="PublishedByUserId" ColumnName="PublishedByUserId" />
+          <ScalarProperty Name="PublishedOnDate" ColumnName="PublishedOnDate" />
+          <ScalarProperty Name="LastModifiedByUserId" ColumnName="LastModifiedByUserId" />
+          <ScalarProperty Name="LastModifiedOnDate" ColumnName="LastModifiedOnDate" />
+          <ScalarProperty Name="CreatedByUserId" ColumnName="CreatedByUserId" />
+          <ScalarProperty Name="CreatedOnDate" ColumnName="CreatedOnDate" />
+          <ScalarProperty Name="DurationInText" ColumnName="DurationInText" />
+          <ScalarProperty Name="Duration" ColumnName="Duration" />
+          <ScalarProperty Name="ThumbnailDescription" ColumnName="ThumbnailDescription" />
+          <ScalarProperty Name="ThumbnailAvailable" ColumnName="ThumbnailAvailable" />
+          <ScalarProperty Name="ThumbnailPath" ColumnName="ThumbnailPath" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="VideoId" ColumnName="VideoId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="cms_Video_Attribute">
+      <EntityTypeMapping TypeName="SAVIS.CoreFW.CMS.AIS.Jun27Model.cms_Video_Attribute">
+        <MappingFragment StoreEntitySet="cms_Video_Attribute">
+          <ScalarProperty Name="ProfileCount" ColumnName="ProfileCount" />
+          <ScalarProperty Name="MobileViewCount" ColumnName="MobileViewCount" />
+          <ScalarProperty Name="DesktopViewCount" ColumnName="DesktopViewCount" />
+          <ScalarProperty Name="WorkflowState" ColumnName="WorkflowState" />
+          <ScalarProperty Name="WorkflowCode" ColumnName="WorkflowCode" />
+          <ScalarProperty Name="MobileViewTime" ColumnName="MobileViewTime" />
+          <ScalarProperty Name="TotalViewTime" ColumnName="TotalViewTime" />
+          <ScalarProperty Name="VideoId" ColumnName="VideoId" />
+          <ScalarProperty Name="VideoAttributeId" ColumnName="VideoAttributeId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="cms_Video_Profile">
+      <EntityTypeMapping TypeName="SAVIS.CoreFW.CMS.AIS.Jun27Model.cms_Video_Profile">
+        <MappingFragment StoreEntitySet="cms_Video_Profile">
+          <ScalarProperty Name="ProcessingPhase" ColumnName="ProcessingPhase" />
+          <ScalarProperty Name="ProcessingPercentage" ColumnName="ProcessingPercentage" />
+          <ScalarProperty Name="CreatedByUserId" ColumnName="CreatedByUserId" />
+          <ScalarProperty Name="CreatedOnDate" ColumnName="CreatedOnDate" />
+          <ScalarProperty Name="Order" ColumnName="Order" />
+          <ScalarProperty Name="IsDefaultProfile" ColumnName="IsDefaultProfile" />
+          <ScalarProperty Name="VideoCodec" ColumnName="VideoCodec" />
+          <ScalarProperty Name="PhysicalFilePath" ColumnName="PhysicalFilePath" />
+          <ScalarProperty Name="DurationInText" ColumnName="DurationInText" />
+          <ScalarProperty Name="Duration" ColumnName="Duration" />
+          <ScalarProperty Name="AspectRatio" ColumnName="AspectRatio" />
+          <ScalarProperty Name="Resolution" ColumnName="Resolution" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="VideoId" ColumnName="VideoId" />
+          <ScalarProperty Name="VideoProfileId" ColumnName="VideoProfileId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="cms_Video_History">
+      <EntityTypeMapping TypeName="SAVIS.CoreFW.CMS.AIS.Jun27Model.cms_Video_History">
+        <MappingFragment StoreEntitySet="cms_Video_History">
+          <ScalarProperty Name="CreatedByUserId" ColumnName="CreatedByUserId" />
+          <ScalarProperty Name="CreatedOnDate" ColumnName="CreatedOnDate" />
+          <ScalarProperty Name="Action" ColumnName="Action" />
+          <ScalarProperty Name="VideoId" ColumnName="VideoId" />
+          <ScalarProperty Name="VideoHistoryId" ColumnName="VideoHistoryId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

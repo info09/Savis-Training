@@ -1,0 +1,10 @@
+C:\Users\traqu\Desktop\Thực tập\Demo.SAVIS.CoreFW.Training.sln\SAVIS.CoreFW.Data\bin\Debug\NewCMS.Data.dll.config
+C:\Users\traqu\Desktop\Thực tập\Demo.SAVIS.CoreFW.Training.sln\SAVIS.CoreFW.Data\bin\Debug\NewCMS.Data.dll
+C:\Users\traqu\Desktop\Thực tập\Demo.SAVIS.CoreFW.Training.sln\SAVIS.CoreFW.Data\bin\Debug\NewCMS.Data.pdb
+C:\Users\traqu\Desktop\Thực tập\Demo.SAVIS.CoreFW.Training.sln\SAVIS.CoreFW.Data\bin\Debug\EntityFramework.dll
+C:\Users\traqu\Desktop\Thực tập\Demo.SAVIS.CoreFW.Training.sln\SAVIS.CoreFW.Data\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\traqu\Desktop\Thực tập\Demo.SAVIS.CoreFW.Training.sln\SAVIS.CoreFW.Data\bin\Debug\EntityFramework.xml
+C:\Users\traqu\Desktop\Thực tập\Demo.SAVIS.CoreFW.Training.sln\SAVIS.CoreFW.Data\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\traqu\Desktop\Thực tập\Demo.SAVIS.CoreFW.Training.sln\SAVIS.CoreFW.Data\obj\Debug\SAVIS.CoreFW.Data.csprojResolveAssemblyReference.cache
+C:\Users\traqu\Desktop\Thực tập\Demo.SAVIS.CoreFW.Training.sln\SAVIS.CoreFW.Data\obj\Debug\NewCMS.Data.dll
+C:\Users\traqu\Desktop\Thực tập\Demo.SAVIS.CoreFW.Training.sln\SAVIS.CoreFW.Data\obj\Debug\NewCMS.Data.pdb

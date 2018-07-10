@@ -1,0 +1,17 @@
+C:\Users\traqu\Desktop\Thực tập\Demo.SAVIS.CoreFW.Training.sln\SAVIS.CoreFW.Common\bin\Debug\Logging\Template.html
+C:\Users\traqu\Desktop\Thực tập\Demo.SAVIS.CoreFW.Training.sln\SAVIS.CoreFW.Common\bin\Debug\Logging\Log.config
+C:\Users\traqu\Desktop\Thực tập\Demo.SAVIS.CoreFW.Training.sln\SAVIS.CoreFW.Common\bin\Debug\NewCMS.Common.dll.config
+C:\Users\traqu\Desktop\Thực tập\Demo.SAVIS.CoreFW.Training.sln\SAVIS.CoreFW.Common\bin\Debug\NewCMS.Common.dll
+C:\Users\traqu\Desktop\Thực tập\Demo.SAVIS.CoreFW.Training.sln\SAVIS.CoreFW.Common\bin\Debug\NewCMS.Common.pdb
+C:\Users\traqu\Desktop\Thực tập\Demo.SAVIS.CoreFW.Training.sln\SAVIS.CoreFW.Common\bin\Debug\EntityFramework.dll
+C:\Users\traqu\Desktop\Thực tập\Demo.SAVIS.CoreFW.Training.sln\SAVIS.CoreFW.Common\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\traqu\Desktop\Thực tập\Demo.SAVIS.CoreFW.Training.sln\SAVIS.CoreFW.Common\bin\Debug\HtmlAgilityPack.dll
+C:\Users\traqu\Desktop\Thực tập\Demo.SAVIS.CoreFW.Training.sln\SAVIS.CoreFW.Common\bin\Debug\log4net.dll
+C:\Users\traqu\Desktop\Thực tập\Demo.SAVIS.CoreFW.Training.sln\SAVIS.CoreFW.Common\bin\Debug\EntityFramework.xml
+C:\Users\traqu\Desktop\Thực tập\Demo.SAVIS.CoreFW.Training.sln\SAVIS.CoreFW.Common\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\traqu\Desktop\Thực tập\Demo.SAVIS.CoreFW.Training.sln\SAVIS.CoreFW.Common\bin\Debug\HtmlAgilityPack.pdb
+C:\Users\traqu\Desktop\Thực tập\Demo.SAVIS.CoreFW.Training.sln\SAVIS.CoreFW.Common\bin\Debug\HtmlAgilityPack.xml
+C:\Users\traqu\Desktop\Thực tập\Demo.SAVIS.CoreFW.Training.sln\SAVIS.CoreFW.Common\bin\Debug\log4net.xml
+C:\Users\traqu\Desktop\Thực tập\Demo.SAVIS.CoreFW.Training.sln\SAVIS.CoreFW.Common\obj\Debug\SAVIS.CoreFW.Common.csprojResolveAssemblyReference.cache
+C:\Users\traqu\Desktop\Thực tập\Demo.SAVIS.CoreFW.Training.sln\SAVIS.CoreFW.Common\obj\Debug\NewCMS.Common.dll
+C:\Users\traqu\Desktop\Thực tập\Demo.SAVIS.CoreFW.Training.sln\SAVIS.CoreFW.Common\obj\Debug\NewCMS.Common.pdb

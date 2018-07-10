@@ -1,0 +1,166 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="SAVIS.CoreFW.CMS.AIS.Jun27Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="SavisCoreFWEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="aspnet_Applications" EntityType="SAVIS.CoreFW.CMS.AIS.Jun27Model.aspnet_Applications" />
+    <EntitySet Name="aspnet_Users" EntityType="SAVIS.CoreFW.CMS.AIS.Jun27Model.aspnet_Users" />
+    <EntitySet Name="cms_Video" EntityType="SAVIS.CoreFW.CMS.AIS.Jun27Model.cms_Video" />
+    <EntitySet Name="cms_Video_Attribute" EntityType="SAVIS.CoreFW.CMS.AIS.Jun27Model.cms_Video_Attribute" />
+    <EntitySet Name="cms_Video_Profile" EntityType="SAVIS.CoreFW.CMS.AIS.Jun27Model.cms_Video_Profile" />
+    <AssociationSet Name="FK__aspnet_Us__Appli__2F10007B" Association="SAVIS.CoreFW.CMS.AIS.Jun27Model.FK__aspnet_Us__Appli__2F10007B">
+      <End Role="aspnet_Applications" EntitySet="aspnet_Applications" />
+      <End Role="aspnet_Users" EntitySet="aspnet_Users" />
+    </AssociationSet>
+    <AssociationSet Name="FK__cms_Video__Video__440B1D61" Association="SAVIS.CoreFW.CMS.AIS.Jun27Model.FK__cms_Video__Video__440B1D61">
+      <End Role="cms_Video" EntitySet="cms_Video" />
+      <End Role="cms_Video_Attribute" EntitySet="cms_Video_Attribute" />
+    </AssociationSet>
+    <AssociationSet Name="FK__cms_Video__Video__48CFD27E" Association="SAVIS.CoreFW.CMS.AIS.Jun27Model.FK__cms_Video__Video__48CFD27E">
+      <End Role="cms_Video" EntitySet="cms_Video" />
+      <End Role="cms_Video_Profile" EntitySet="cms_Video_Profile" />
+    </AssociationSet>
+    <EntitySet Name="cms_Video_History" EntityType="SAVIS.CoreFW.CMS.AIS.Jun27Model.cms_Video_History" />
+    <AssociationSet Name="FK__cms_Video__Video__4D94879B" Association="SAVIS.CoreFW.CMS.AIS.Jun27Model.FK__cms_Video__Video__4D94879B">
+      <End Role="cms_Video" EntitySet="cms_Video" />
+      <End Role="cms_Video_History" EntitySet="cms_Video_History" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="aspnet_Applications">
+    <Key>
+      <PropertyRef Name="ApplicationId" />
+    </Key>
+    <Property Name="ApplicationName" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="LoweredApplicationName" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="ApplicationId" Type="Guid" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="aspnet_Users" Relationship="SAVIS.CoreFW.CMS.AIS.Jun27Model.FK__aspnet_Us__Appli__2F10007B" FromRole="aspnet_Applications" ToRole="aspnet_Users" />
+  </EntityType>
+  <EntityType Name="aspnet_Users">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="ApplicationId" Type="Guid" Nullable="false" />
+    <Property Name="UserId" Type="Guid" Nullable="false" />
+    <Property Name="UserName" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="FullName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="aspnet_Applications" Relationship="SAVIS.CoreFW.CMS.AIS.Jun27Model.FK__aspnet_Us__Appli__2F10007B" FromRole="aspnet_Users" ToRole="aspnet_Applications" />
+  </EntityType>
+  <EntityType Name="cms_Video">
+    <Key>
+      <PropertyRef Name="VideoId" />
+    </Key>
+    <Property Name="VideoId" Type="Guid" Nullable="false" />
+    <Property Name="Title" Type="String" Nullable="false" MaxLength="512" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="1024" FixedLength="false" Unicode="true" />
+    <Property Name="ThumbnailPath" Type="String" MaxLength="1024" FixedLength="false" Unicode="true" />
+    <Property Name="ThumbnailAvailable" Type="Boolean" Nullable="false" />
+    <Property Name="ThumbnailDescription" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="Duration" Type="Int32" Nullable="false" />
+    <Property Name="DurationInText" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="CreatedOnDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CreatedByUserId" Type="Guid" Nullable="false" />
+    <Property Name="LastModifiedOnDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="LastModifiedByUserId" Type="Guid" Nullable="false" />
+    <Property Name="PublishedOnDate" Type="DateTime" Precision="3" />
+    <Property Name="PublishedByUserId" Type="Guid" Nullable="false" />
+    <Property Name="DisplayStatus" Type="Int32" Nullable="false" />
+    <Property Name="ApplicationId" Type="Guid" Nullable="false" />
+    <NavigationProperty Name="cms_Video_Attribute" Relationship="SAVIS.CoreFW.CMS.AIS.Jun27Model.FK__cms_Video__Video__440B1D61" FromRole="cms_Video" ToRole="cms_Video_Attribute" />
+    <NavigationProperty Name="cms_Video_Profile" Relationship="SAVIS.CoreFW.CMS.AIS.Jun27Model.FK__cms_Video__Video__48CFD27E" FromRole="cms_Video" ToRole="cms_Video_Profile" />
+    <NavigationProperty Name="cms_Video_History" Relationship="SAVIS.CoreFW.CMS.AIS.Jun27Model.FK__cms_Video__Video__4D94879B" FromRole="cms_Video" ToRole="cms_Video_History" />
+  </EntityType>
+  <EntityType Name="cms_Video_Attribute">
+    <Key>
+      <PropertyRef Name="VideoAttributeId" />
+    </Key>
+    <Property Name="VideoAttributeId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="VideoId" Type="Guid" Nullable="false" />
+    <Property Name="TotalViewTime" Type="Int32" Nullable="false" />
+    <Property Name="MobileViewTime" Type="Int32" Nullable="false" />
+    <Property Name="WorkflowCode" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+    <Property Name="WorkflowState" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+    <Property Name="DesktopViewCount" Type="Int32" Nullable="false" />
+    <Property Name="MobileViewCount" Type="Int32" Nullable="false" />
+    <Property Name="ProfileCount" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="cms_Video" Relationship="SAVIS.CoreFW.CMS.AIS.Jun27Model.FK__cms_Video__Video__440B1D61" FromRole="cms_Video_Attribute" ToRole="cms_Video" />
+  </EntityType>
+  <EntityType Name="cms_Video_Profile">
+    <Key>
+      <PropertyRef Name="VideoProfileId" />
+    </Key>
+    <Property Name="VideoProfileId" Type="Guid" Nullable="false" />
+    <Property Name="VideoId" Type="Guid" Nullable="false" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="Resolution" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="AspectRatio" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="Duration" Type="Int32" Nullable="false" />
+    <Property Name="DurationInText" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="PhysicalFilePath" Type="String" Nullable="false" MaxLength="1024" FixedLength="false" Unicode="true" />
+    <Property Name="VideoCodec" Type="String" MaxLength="16" FixedLength="false" Unicode="false" />
+    <Property Name="IsDefaultProfile" Type="Boolean" Nullable="false" />
+    <Property Name="Order" Type="Int32" Nullable="false" />
+    <Property Name="CreatedOnDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CreatedByUserId" Type="Guid" Nullable="false" />
+    <Property Name="ProcessingPercentage" Type="Int32" Nullable="false" />
+    <Property Name="ProcessingPhase" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="cms_Video" Relationship="SAVIS.CoreFW.CMS.AIS.Jun27Model.FK__cms_Video__Video__48CFD27E" FromRole="cms_Video_Profile" ToRole="cms_Video" />
+  </EntityType>
+  <Association Name="FK__aspnet_Us__Appli__2F10007B">
+    <End Type="SAVIS.CoreFW.CMS.AIS.Jun27Model.aspnet_Applications" Role="aspnet_Applications" Multiplicity="1" />
+    <End Type="SAVIS.CoreFW.CMS.AIS.Jun27Model.aspnet_Users" Role="aspnet_Users" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="aspnet_Applications">
+        <PropertyRef Name="ApplicationId" />
+      </Principal>
+      <Dependent Role="aspnet_Users">
+        <PropertyRef Name="ApplicationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__cms_Video__Video__440B1D61">
+    <End Type="SAVIS.CoreFW.CMS.AIS.Jun27Model.cms_Video" Role="cms_Video" Multiplicity="1" />
+    <End Type="SAVIS.CoreFW.CMS.AIS.Jun27Model.cms_Video_Attribute" Role="cms_Video_Attribute" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="cms_Video">
+        <PropertyRef Name="VideoId" />
+      </Principal>
+      <Dependent Role="cms_Video_Attribute">
+        <PropertyRef Name="VideoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__cms_Video__Video__48CFD27E">
+    <End Type="SAVIS.CoreFW.CMS.AIS.Jun27Model.cms_Video" Role="cms_Video" Multiplicity="1" />
+    <End Type="SAVIS.CoreFW.CMS.AIS.Jun27Model.cms_Video_Profile" Role="cms_Video_Profile" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="cms_Video">
+        <PropertyRef Name="VideoId" />
+      </Principal>
+      <Dependent Role="cms_Video_Profile">
+        <PropertyRef Name="VideoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="cms_Video_History">
+    <Key>
+      <PropertyRef Name="VideoHistoryId" />
+    </Key>
+    <Property Name="VideoHistoryId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="VideoId" Type="Guid" Nullable="false" />
+    <Property Name="Action" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedOnDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CreatedByUserId" Type="Guid" Nullable="false" />
+    <NavigationProperty Name="cms_Video" Relationship="SAVIS.CoreFW.CMS.AIS.Jun27Model.FK__cms_Video__Video__4D94879B" FromRole="cms_Video_History" ToRole="cms_Video" />
+  </EntityType>
+  <Association Name="FK__cms_Video__Video__4D94879B">
+    <End Type="SAVIS.CoreFW.CMS.AIS.Jun27Model.cms_Video" Role="cms_Video" Multiplicity="1" />
+    <End Type="SAVIS.CoreFW.CMS.AIS.Jun27Model.cms_Video_History" Role="cms_Video_History" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="cms_Video">
+        <PropertyRef Name="VideoId" />
+      </Principal>
+      <Dependent Role="cms_Video_History">
+        <PropertyRef Name="VideoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

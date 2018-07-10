@@ -1,0 +1,158 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="SAVIS.CoreFW.CMS.AIS.Jun27Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="aspnet_Applications">
+    <Key>
+      <PropertyRef Name="ApplicationId" />
+    </Key>
+    <Property Name="ApplicationName" Type="nvarchar" MaxLength="256" Nullable="false" />
+    <Property Name="LoweredApplicationName" Type="nvarchar" MaxLength="256" Nullable="false" />
+    <Property Name="ApplicationId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Description" Type="nvarchar" MaxLength="256" />
+  </EntityType>
+  <EntityType Name="aspnet_Users">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="ApplicationId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="UserName" Type="nvarchar" MaxLength="256" Nullable="false" />
+    <Property Name="FullName" Type="nvarchar" MaxLength="256" />
+  </EntityType>
+  <EntityType Name="cms_Video">
+    <Key>
+      <PropertyRef Name="VideoId" />
+    </Key>
+    <Property Name="VideoId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Title" Type="nvarchar" MaxLength="512" Nullable="false" />
+    <Property Name="Description" Type="nvarchar" MaxLength="1024" />
+    <Property Name="ThumbnailPath" Type="nvarchar" MaxLength="1024" />
+    <Property Name="ThumbnailAvailable" Type="bit" Nullable="false" />
+    <Property Name="ThumbnailDescription" Type="nvarchar" MaxLength="256" />
+    <Property Name="Duration" Type="int" Nullable="false" />
+    <Property Name="DurationInText" Type="varchar" MaxLength="10" />
+    <Property Name="CreatedOnDate" Type="datetime" Nullable="false" />
+    <Property Name="CreatedByUserId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="LastModifiedOnDate" Type="datetime" Nullable="false" />
+    <Property Name="LastModifiedByUserId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="PublishedOnDate" Type="datetime" />
+    <Property Name="PublishedByUserId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="DisplayStatus" Type="int" Nullable="false" />
+    <Property Name="ApplicationId" Type="uniqueidentifier" Nullable="false" />
+  </EntityType>
+  <EntityType Name="cms_Video_Attribute">
+    <Key>
+      <PropertyRef Name="VideoAttributeId" />
+    </Key>
+    <Property Name="VideoAttributeId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="VideoId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="TotalViewTime" Type="int" Nullable="false" />
+    <Property Name="MobileViewTime" Type="int" Nullable="false" />
+    <Property Name="WorkflowCode" Type="varchar" MaxLength="64" />
+    <Property Name="WorkflowState" Type="varchar" MaxLength="64" />
+    <Property Name="DesktopViewCount" Type="int" Nullable="false" />
+    <Property Name="MobileViewCount" Type="int" Nullable="false" />
+    <Property Name="ProfileCount" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="cms_Video_History">
+    <Key>
+      <PropertyRef Name="VideoHistoryId" />
+    </Key>
+    <Property Name="VideoHistoryId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="VideoId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Action" Type="nvarchar(max)" />
+    <Property Name="CreatedOnDate" Type="datetime" Nullable="false" />
+    <Property Name="CreatedByUserId" Type="uniqueidentifier" Nullable="false" />
+  </EntityType>
+  <EntityType Name="cms_Video_Profile">
+    <Key>
+      <PropertyRef Name="VideoProfileId" />
+    </Key>
+    <Property Name="VideoProfileId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="VideoId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="Resolution" Type="varchar" MaxLength="10" />
+    <Property Name="AspectRatio" Type="varchar" MaxLength="10" />
+    <Property Name="Duration" Type="int" Nullable="false" />
+    <Property Name="DurationInText" Type="varchar" MaxLength="10" />
+    <Property Name="PhysicalFilePath" Type="nvarchar" MaxLength="1024" Nullable="false" />
+    <Property Name="VideoCodec" Type="varchar" MaxLength="16" />
+    <Property Name="IsDefaultProfile" Type="bit" Nullable="false" />
+    <Property Name="Order" Type="int" Nullable="false" />
+    <Property Name="CreatedOnDate" Type="datetime" Nullable="false" />
+    <Property Name="CreatedByUserId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="ProcessingPercentage" Type="int" Nullable="false" />
+    <Property Name="ProcessingPhase" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <Association Name="FK__aspnet_Us__Appli__2F10007B">
+    <End Role="aspnet_Applications" Type="Self.aspnet_Applications" Multiplicity="1" />
+    <End Role="aspnet_Users" Type="Self.aspnet_Users" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="aspnet_Applications">
+        <PropertyRef Name="ApplicationId" />
+      </Principal>
+      <Dependent Role="aspnet_Users">
+        <PropertyRef Name="ApplicationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__cms_Video__Video__440B1D61">
+    <End Role="cms_Video" Type="Self.cms_Video" Multiplicity="1" />
+    <End Role="cms_Video_Attribute" Type="Self.cms_Video_Attribute" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="cms_Video">
+        <PropertyRef Name="VideoId" />
+      </Principal>
+      <Dependent Role="cms_Video_Attribute">
+        <PropertyRef Name="VideoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__cms_Video__Video__48CFD27E">
+    <End Role="cms_Video" Type="Self.cms_Video" Multiplicity="1" />
+    <End Role="cms_Video_Profile" Type="Self.cms_Video_Profile" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="cms_Video">
+        <PropertyRef Name="VideoId" />
+      </Principal>
+      <Dependent Role="cms_Video_Profile">
+        <PropertyRef Name="VideoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__cms_Video__Video__4D94879B">
+    <End Role="cms_Video" Type="Self.cms_Video" Multiplicity="1" />
+    <End Role="cms_Video_History" Type="Self.cms_Video_History" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="cms_Video">
+        <PropertyRef Name="VideoId" />
+      </Principal>
+      <Dependent Role="cms_Video_History">
+        <PropertyRef Name="VideoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="SAVISCoreFWCMSAISJun27ModelStoreContainer">
+    <EntitySet Name="aspnet_Applications" EntityType="Self.aspnet_Applications" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="aspnet_Users" EntityType="Self.aspnet_Users" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="cms_Video" EntityType="Self.cms_Video" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="cms_Video_Attribute" EntityType="Self.cms_Video_Attribute" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="cms_Video_History" EntityType="Self.cms_Video_History" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="cms_Video_Profile" EntityType="Self.cms_Video_Profile" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__aspnet_Us__Appli__2F10007B" Association="Self.FK__aspnet_Us__Appli__2F10007B">
+      <End Role="aspnet_Applications" EntitySet="aspnet_Applications" />
+      <End Role="aspnet_Users" EntitySet="aspnet_Users" />
+    </AssociationSet>
+    <AssociationSet Name="FK__cms_Video__Video__440B1D61" Association="Self.FK__cms_Video__Video__440B1D61">
+      <End Role="cms_Video" EntitySet="cms_Video" />
+      <End Role="cms_Video_Attribute" EntitySet="cms_Video_Attribute" />
+    </AssociationSet>
+    <AssociationSet Name="FK__cms_Video__Video__48CFD27E" Association="Self.FK__cms_Video__Video__48CFD27E">
+      <End Role="cms_Video" EntitySet="cms_Video" />
+      <End Role="cms_Video_Profile" EntitySet="cms_Video_Profile" />
+    </AssociationSet>
+    <AssociationSet Name="FK__cms_Video__Video__4D94879B" Association="Self.FK__cms_Video__Video__4D94879B">
+      <End Role="cms_Video" EntitySet="cms_Video" />
+      <End Role="cms_Video_History" EntitySet="cms_Video_History" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

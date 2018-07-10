@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DemoStudentDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="cms_Class">
+    <Key>
+      <PropertyRef Name="ClassId" />
+    </Key>
+    <Property Name="ClassId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="cms_Group">
+    <Key>
+      <PropertyRef Name="GroupId" />
+    </Key>
+    <Property Name="GroupId" Type="int" Nullable="false" />
+    <Property Name="Leader" Type="varchar" MaxLength="100" />
+    <Property Name="ClassId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="cms_Student">
+    <Key>
+      <PropertyRef Name="StudentId" />
+    </Key>
+    <Property Name="StudentId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Address" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Email" Type="varchar" MaxLength="50" />
+    <Property Name="Phone" Type="varchar" MaxLength="50" />
+    <Property Name="Facebook" Type="varchar" MaxLength="50" />
+    <Property Name="ClassId" Type="int" Nullable="false" />
+    <Property Name="GroupId" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="FK__cms_Group__Class__0519C6AF">
+    <End Role="cms_Class" Type="Self.cms_Class" Multiplicity="1" />
+    <End Role="cms_Group" Type="Self.cms_Group" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="cms_Class">
+        <PropertyRef Name="ClassId" />
+      </Principal>
+      <Dependent Role="cms_Group">
+        <PropertyRef Name="ClassId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__cms_Stude__Class__09DE7BCC">
+    <End Role="cms_Class" Type="Self.cms_Class" Multiplicity="1" />
+    <End Role="cms_Student" Type="Self.cms_Student" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="cms_Class">
+        <PropertyRef Name="ClassId" />
+      </Principal>
+      <Dependent Role="cms_Student">
+        <PropertyRef Name="ClassId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__cms_Stude__Group__0AD2A005">
+    <End Role="cms_Group" Type="Self.cms_Group" Multiplicity="1" />
+    <End Role="cms_Student" Type="Self.cms_Student" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="cms_Group">
+        <PropertyRef Name="GroupId" />
+      </Principal>
+      <Dependent Role="cms_Student">
+        <PropertyRef Name="GroupId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="DemoStudentDBModelStoreContainer">
+    <EntitySet Name="cms_Class" EntityType="Self.cms_Class" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="cms_Group" EntityType="Self.cms_Group" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="cms_Student" EntityType="Self.cms_Student" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__cms_Group__Class__0519C6AF" Association="Self.FK__cms_Group__Class__0519C6AF">
+      <End Role="cms_Class" EntitySet="cms_Class" />
+      <End Role="cms_Group" EntitySet="cms_Group" />
+    </AssociationSet>
+    <AssociationSet Name="FK__cms_Stude__Class__09DE7BCC" Association="Self.FK__cms_Stude__Class__09DE7BCC">
+      <End Role="cms_Class" EntitySet="cms_Class" />
+      <End Role="cms_Student" EntitySet="cms_Student" />
+    </AssociationSet>
+    <AssociationSet Name="FK__cms_Stude__Group__0AD2A005" Association="Self.FK__cms_Stude__Group__0AD2A005">
+      <End Role="cms_Group" EntitySet="cms_Group" />
+      <End Role="cms_Student" EntitySet="cms_Student" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

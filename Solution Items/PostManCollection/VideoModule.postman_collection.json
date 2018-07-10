@@ -1,0 +1,213 @@
+{
+	"variables": [],
+	"info": {
+		"name": "VideoModule",
+		"_postman_id": "41aeaa91-c17b-32ed-c8e8-42c2bcda1b45",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Lấy video theo mã",
+			"request": {
+				"url": "{apiUrl}/api/v3/cms/videos/071AECF3-F81C-49E6-B4EA-DCF85D8C79EF",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Basic RUNNX0FVVEhfQVBJOnNlY3JldA==",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Tạo mới video",
+			"request": {
+				"url": "{apiUrl}/api/v3/cms/videos",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Basic RUNNX0FVVEhfQVBJOnNlY3JldA==",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"Title\":\"hoangvancao2\",\n\t\"Description\":\"abc\",\n\t\"Thumbnail\":\"aa\",\n\t\"ThumbnailAvailable\":true,\n\t\"ThumbnailMdmFileId\":\"b12b2fd2-6d61-46a1-b781-2fe7506d41ff\",\n\t\"ThumbnailDescription\":\"aa\",\n\t\"Duration\":3600,\n\t\"StreamingProtocol\":0,\n\t\"WorkflowCode\":\"test\",\n\t\"CreatedByUserId\":\"9CE41782-7C8F-454F-8975-F0B31841B5BF\",\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Lọc và phân trang video",
+			"request": {
+				"url": "{apiUrl}/api/v3/cms/videos?filter={\"PageSize\":10,\"PageNumber\":1,\"DisplayStatus\":1,\"IncludeVideoHistory\":false,\"IncludeVideoProfile\":false,\"TextSearch\":\"\"}",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Basic RUNNX0FVVEhfQVBJOnNlY3JldA==",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Sửa video",
+			"request": {
+				"url": "{apiUrl}/api/v3/cms/videos/DA223647-13C9-4373-85FF-7677A4BB039B",
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Basic RUNNX0FVVEhfQVBJOnNlY3JldA==",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"Title\":\"test2\",\n\t\"Description\":\"abc\",\n\t\"Thumbnail\":\"aa\",\n\t\"ThumbnailAvailable\":true,\n\t\"ThumbnailMdmFileId\":\"b12b2fd2-6d61-46a1-b781-2fe7506d41ff\",\n\t\"ThumbnailDescription\":\"aa\",\n\t\"Duration\":3600,\n\t\"DesktopViewCount\":1,\n\t\"MobileViewCount\":3,\n\t\"StreamingProtocol\":0,\n\t\"ProfileCount\":1,\n\t\"WorkflowCode\":\"test\",\n\t\"DisplayStatus\":1,\n\t\"LastModifiedByUserId\":\"2FB87188-35B5-48D1-B527-58BF3A2B12B2\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Xóa video",
+			"request": {
+				"url": "{apiUrl}/api/v3/cms/videos/DA223647-13C9-4373-85FF-7677A4BB039B",
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Basic RUNNX0FVVEhfQVBJOnNlY3JldA==",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "lấy video profile theo mã video",
+			"request": {
+				"url": "{apiUrl}/api/v3/cms/videos/7F385508-FFFB-45F0-B75B-446C97A6019B/profiles",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Basic RUNNX0FVVEhfQVBJOnNlY3JldA==",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Thêm mới video profile",
+			"request": {
+				"url": "{apiUrl}/api/v3/cms/videos/071AECF3-F81C-49E6-B4EA-DCF85D8C79EF/profiles",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Basic RUNNX0FVVEhfQVBJOnNlY3JldA==",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"Name\":\"test\",\r\n\t\"Resolution\":\"test\",\r\n\t\"AspectRatio\":\"test\",\r\n\t\"Duration\":1000,\r\n\t\"PhysicalFilePath\":\"test\",\r\n\t\"VideoCodec\":\"test\",\r\n\t\"CreatedByUserId\":\"48ED5B71-66DC-4725-9604-4C042E45FA3F\",\r\n\t\"IsDefaultProfile\":true,\r\n\t\"Order\":1\r\n}\r\n"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Lấy video profile theo mã profile",
+			"request": {
+				"url": "{apiUrl}/api/v3/cms/videos/7F385508-FFFB-45F0-B75B-446C97A6019B/profiles/581B1E52-D6F1-4EB7-BA70-0E184394259B",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Basic RUNNX0FVVEhfQVBJOnNlY3JldA==",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Thêm lượt view (totalViewTime) Video",
+			"request": {
+				"url": "{apiUrl}/api/v3/cms/videos/071AECF3-F81C-49E6-B4EA-DCF85D8C79EF/totalview",
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Basic RUNNX0FVVEhfQVBJOnNlY3JldA==",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Lọc và phân trang theo Video Profile",
+			"request": {
+				"url": "{apiUrl}/api/v3/cms/videos/071AECF3-F81C-49E6-B4EA-DCF85D8C79EF/profiles?filter={\"PageSize\":10,\"PageNumber\":1,\"Name\":null,\"Resolution\":null,\"AspectRatio\":null,\"TextSearch\":\"\",\"Duration\":null,\"DurationInText\":null,\"VideoCodec\":null,\"IsDefaultProfile\":false}",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Basic RUNNX0FVVEhfQVBJOnNlY3JldA==",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}

@@ -1,0 +1,94 @@
+﻿-- <?xml version="1.0"?>	
+-- <!DOCTYPE cross-domain-policy SYSTEM "http://www.adobe.com/xml/dtds/cross-domain-policy.dtd">
+-- <cross-domain-policy>
+    -- <site-control permitted-cross-domain-policies="master-only"/>
+    -- <allow-access-from domain="http://*.192.168.1.221:9810/"/>
+    -- <allow-access-from domain="http://192.168.1.221:9810/"/>
+    -- <allow-http-request-headers-from domain="http://*.192.168.1.221:9810/" headers="SOAPAction"/>
+-- </cross-domain-policy>
+
+
+-- 0: đang soạn thảo, 1: đang trong quá trình phê duyệt 2: đã xuất bản , 3: Hủy xuất bản, 4: đã xóa
+
+--Create by : CaoHV
+--Create date : 14/02/2017
+------CREATE TABLE-------
+CREATE TABLE cms_Video(
+	VideoId	uniqueidentifier primary key not null,
+	Title nvarchar(512) not null,
+	[Description]	nvarchar(1024) null,
+	Thumbnail nvarchar(1024) null,
+	ThumbnailAvailable	bit not null,
+	ThumbnailMdmFileId	uniqueidentifier not null,
+	ThumbnailDescription nvarchar(256) null,
+	Duration int not null,
+	DurationInText	varchar(10) null,
+	DesktopViewCount	int not null,
+	MobileViewCount	int not null,
+	StreamingProtocol	varchar(10),
+	ProfileCount	int not null,
+	WorkflowCode	varchar(64) null,
+	WorkflowState	varchar(64) null,
+	WorkflowNextState	varchar(64) null,
+	WorkflowPreviousState	varchar(64) null,
+	WorkflowAvailableCommands	varchar(128) null,
+	CreatedOnDate	DateTime not null,
+	CreatedByUserId	uniqueidentifier not null,
+	LastModifiedOnDate	DateTime not null,
+	LastModifiedByUserId	uniqueidentifier not null,
+	PublishedOnDate	DateTime null,
+	PublishedByUserId	uniqueidentifier not null,
+	DisplayStatus	int not null,
+	ApplicationId	uniqueidentifier not null,
+);
+
+CREATE TABLE cms_Video_Attribute(
+	VideoAttributeId bigint identity(1,1) primary key not null,
+	VideoId		uniqueidentifier references cms_Video(VideoId) not null,
+	PrimaryTermId	nvarchar(1024) null,
+	PrimaryTermName	nvarchar(1024) null,
+	TotalViewTime	int not null,
+	MobileViewTime	int not null
+);
+
+CREATE TABLE cms_Video_History(
+	VideoHistoryId	bigint identity(1,1) primary key not null,
+	VideoId	uniqueidentifier references cms_Video(VideoId) not null,
+	[Action]	nvarchar(max) null,
+	CreatedOnDate	DateTime not null,
+	CreatedByUserId	uniqueidentifier not null,
+);
+
+CREATE TABLE cms_Video_Profile(
+	VideoProfileId	uniqueidentifier primary key not null,
+	VideoId	uniqueidentifier references cms_Video(VideoId) not null,
+	[Name]	nvarchar(128) not null,
+	Resolution	varchar(10) null,
+	AspectRatio	varchar(10) null,
+	Duration	int not null,
+	DurationInText	varchar(10) null,
+	PhysicalFilePath	nvarchar(1024) not null,
+	MdmFileId	uniqueidentifier not null,
+	VideoCodec	varchar(16) null,
+	IsDefaultProfile bit not null,
+	[Order]	int not null,
+	CreatedOnDate	datetime not null,
+	CreatedByUserId	uniqueidentifier not null,
+	ProcessingPercentage	int not null,
+	ProcessingPhase	varchar(100) null,
+);
+
+//Thêm trường chọn ngôn ngữ cho video
+alter table cms_Video
+	add LanguageId uniqueidentifier references cms_Language(LanguageId) not null
+//CREATOR : CAOHV
+//CREATE DATE : 28/02/2017
+//Thêm taxonomy cho video
+CREATE TABLE cms_Video_Term_Relationship
+(
+	Id Bigint identity primary key not null,
+	VideoId uniqueidentifier references cms_Video(VideoId) not null,
+	TermId uniqueidentifier ,
+	[Weight] int default 0,
+	CreatedDate datetime not null
+);

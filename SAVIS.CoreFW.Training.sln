@@ -1,0 +1,57 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SAVIS.CoreFW.Business", "SAVIS.CoreFW.Business\SAVIS.CoreFW.Business.csproj", "{531EFE12-6166-4234-A90C-2FC2BE453FCD}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{F723947B-DB1B-4260-A103-A9708A1828A7}"
+	ProjectSection(SolutionItems) = preProject
+		Solution Items\Changelog.txt = Solution Items\Changelog.txt
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SAVIS.CoreFW.Data", "SAVIS.CoreFW.Data\SAVIS.CoreFW.Data.csproj", "{65104C64-CD4F-43F0-B6F8-AF5A6CFAF9BD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SAVIS.CoreFW.Common", "SAVIS.CoreFW.Common\SAVIS.CoreFW.Common.csproj", "{4375F79D-B810-461D-9846-A00123F6588B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PostManCollection", "PostManCollection", "{D059259C-5A50-4268-9310-D1DCAEAD070A}"
+	ProjectSection(SolutionItems) = preProject
+		Solution Items\PostManCollection\VideoModule.postman_collection.json = Solution Items\PostManCollection\VideoModule.postman_collection.json
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SAVIS.CoreFW.API", "SAVIS.CoreFW.API\SAVIS.CoreFW.API.csproj", "{8C299813-FE30-444C-9B59-08AD90FCF4AA}"
+EndProject
+Global
+	GlobalSection(SubversionScc) = preSolution
+		Svn-Managed = True
+		Manager = AnkhSVN - Subversion Support for Visual Studio
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{531EFE12-6166-4234-A90C-2FC2BE453FCD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{531EFE12-6166-4234-A90C-2FC2BE453FCD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{531EFE12-6166-4234-A90C-2FC2BE453FCD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{531EFE12-6166-4234-A90C-2FC2BE453FCD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{65104C64-CD4F-43F0-B6F8-AF5A6CFAF9BD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{65104C64-CD4F-43F0-B6F8-AF5A6CFAF9BD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{65104C64-CD4F-43F0-B6F8-AF5A6CFAF9BD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{65104C64-CD4F-43F0-B6F8-AF5A6CFAF9BD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4375F79D-B810-461D-9846-A00123F6588B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4375F79D-B810-461D-9846-A00123F6588B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4375F79D-B810-461D-9846-A00123F6588B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4375F79D-B810-461D-9846-A00123F6588B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8C299813-FE30-444C-9B59-08AD90FCF4AA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8C299813-FE30-444C-9B59-08AD90FCF4AA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8C299813-FE30-444C-9B59-08AD90FCF4AA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8C299813-FE30-444C-9B59-08AD90FCF4AA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{D059259C-5A50-4268-9310-D1DCAEAD070A} = {F723947B-DB1B-4260-A103-A9708A1828A7}
+	EndGlobalSection
+EndGlobal
